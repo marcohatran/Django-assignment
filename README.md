@@ -9,6 +9,33 @@ Your task is to create a Django application that is a feeds reader. The app can 
 - [x] As a user, I want to filter items by category name on list of items.
 - [x] As a user, I want to create new item manually via a form.
 - [x] As a user, I want to update/delete an item
-## Todo:
+## How to setup:
+### Require of project
+- python3 (>3.5)
+- Dependences: please check [requirements](./requirements.txt)
+### Models
+- `Channel` is represent feed, which has a  `link`
+- `Channel` have many `Item` contain the content.
+### Setup database
+- Using default database of django sqlite3.
+- Database run:
+`python manage.py makemigrations` for create model objects
+`python manage.py migrate` run datebase
+### Command to grab item
+`python manage.py grab_item <list_of_urls_seperate_by_comma> <log_file>`
+* <list_of_urls_seperate_by_comma>: List of feeds URLs need to grab item (seperate by comma)
+* <log_file>: path of log file to store while grab item
+### Run web based
+- Dependences install `pip install -r requirements.txt`
+- `cd assignment`
+- Run server `python manage.py runserver`
+- On the localhost `localhost:8000/assignment/`
+### Web based interface
+- List of grab channel: `<server_host>:<server_port>/assignment/`
+- Detail of channel: `<server_host>:<server_port>/assignment/<channel_id>`
+- Edit channel `<server_host>:<server_port>/assignment/edit_channel/<channel_id>`
+- Display all item belong channel: `<server_host>:<server_port>/assingment/items/<channel_id>`
+- Detail of item: `<server_host>:<server_port>/assignment/detail_item/<item_id>`
+- Edit item: `<server_host>:<server_port>/assignment/edit_item/<item_id>`
 
 
